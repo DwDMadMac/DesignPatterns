@@ -1,4 +1,6 @@
-package net.pl3x.patterns.memento;
+package net.pl3x.patterns.memento.excercise;
+
+import net.pl3x.patterns.memento.EditorState;
 
 /*
  * Originator

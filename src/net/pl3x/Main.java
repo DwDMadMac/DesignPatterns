@@ -7,7 +7,7 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
-import net.pl3x.patterns.memento.Document;
+import net.pl3x.patterns.memento.excercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
 import net.pl3x.patterns.state.BrushTool;
