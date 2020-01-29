@@ -1,4 +1,4 @@
-package net.pl3x.memento;
+package net.pl3x.patterns.memento;
 
 /*
  * Originator

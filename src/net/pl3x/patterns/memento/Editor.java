@@ -1,6 +1,4 @@
-package net.pl3x.memento;
-
-import java.util.List;
+package net.pl3x.patterns.memento;
 
 /*
  * Originator
