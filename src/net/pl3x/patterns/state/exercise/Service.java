@@ -3,14 +3,29 @@ package net.pl3x.patterns.state.exercise;
 public class Service implements State{
     private TravelMode travelMode;
 
+    /**
+     * Gets set Travel Mode
+     *
+     * @return travel Mode
+     */
     public TravelMode getTravelMode() {
         return travelMode;
     }
 
+    /**
+     * Set the given travel mode
+     *
+     * @param travelMode Set travel mode
+     */
     public void setTravelMode(TravelMode travelMode) {
         this.travelMode = travelMode;
     }
 
+    /**
+     * Checks for the set travel mode and explicitly outputs the given direction
+     *
+     * @return Travel mode direction
+     */
     @Override
     public Object direction() {
         if (travelMode == TravelMode.DRIVING) {
@@ -31,6 +46,11 @@ public class Service implements State{
         }
     }
 
+    /**
+     * Checks for the set travel mode and explicitly outputs the given eta
+     *
+     * @return Travel mode eta
+     */
     @Override
     public Object eta() {
         if (travelMode == TravelMode.DRIVING) {

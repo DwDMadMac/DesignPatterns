@@ -7,6 +7,8 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
+import net.pl3x.patterns.iterator.BrowseHistory;
+import net.pl3x.patterns.iterator.Iterator;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
@@ -191,6 +193,51 @@ public class Main {
 	mapping.setTravelMode(TravelMode.BICYCLING);
 	mapping.direction();
 	mapping.eta();
+
+	/*
+	 * Iterator Pattern
+	 */
+	/*
+	 * This is not a good implementation because if we decide to change the
+	 * data structure for which how we list the browser history this will break what we have below
+	 *
+	 *
+	var browserHistory = new BrowseHistory();
+	System.out.println();
+	browserHistory.push("a");
+	browserHistory.push("b");
+	browserHistory.push("c");
+
+	for (var i = 0; i < browserHistory.getUrls().size(); i++){
+		var url = browserHistory.getUrls().get(i);
+		System.out.println(url);
+	}
+	*/
+
+	// Fixed size array example
+	var browserHistory = new BrowseHistory();
+	System.out.println();
+	browserHistory.push("a");
+	browserHistory.push("b");
+	browserHistory.push("c");
+
+	/* Since we do not want anyone to know about the internals this 'forLoop' no longer works
+	for (var i = 0; i < browserHistory.getUrlsFixed().size(); i++){
+		var url = browserHistory.getUrlsFixed().get(i);
+		System.out.println(url);
+	}
+	*/
+	/*
+	 * The benefits of using Iterators is that our main class coding is not breaking and we can
+	 * add addition implementation in our other classes with ease
+	 */
+	Iterator iterator = browserHistory.createIterator();
+	while (iterator.hasNext()){
+		var url = iterator.current();
+		System.out.println(url);
+		iterator.hasNext();
+	}
+
 	}
 
     public static TaxCalculator getCalculator() {

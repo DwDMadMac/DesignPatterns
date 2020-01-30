@@ -12,12 +12,6 @@ public class Account {
         }
     }
 
-    public void withdraw(float amount) {
-        if (amount > 0) {
-            balance -= amount;
-        }
-    }
-
     /* A better way of obtaining this is with withdraw(){ }
     public void setBalance(float balance) {
         if (balance > 0) {
@@ -25,6 +19,12 @@ public class Account {
         }
     }
     */
+
+    public void withdraw(float amount) {
+        if (amount > 0) {
+            balance -= amount;
+        }
+    }
 
     public float getBalance() {
         return balance;
