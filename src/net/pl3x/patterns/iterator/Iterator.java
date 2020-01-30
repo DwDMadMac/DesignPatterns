@@ -31,6 +31,5 @@ public interface Iterator<T> {
      */
     // String current();
     T current();
-
     void next();
 }

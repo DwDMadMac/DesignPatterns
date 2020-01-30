@@ -9,6 +9,8 @@ import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
 import net.pl3x.patterns.iterator.BrowseHistory;
 import net.pl3x.patterns.iterator.Iterator;
+import net.pl3x.patterns.iterator.exercise.Product;
+import net.pl3x.patterns.iterator.exercise.ProductionCollection;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
@@ -238,6 +240,22 @@ public class Main {
 		iterator.hasNext();
 	}
 
+	/*
+	 * Iterator Exercise
+	 */
+	var productCollection = new ProductionCollection();
+	System.out.println();
+	productCollection.add("Product One");
+	productCollection.add("Product Two");
+	productCollection.add("Product Three");
+
+	Iterator iteratorProducts = productCollection.createIterator();
+	while (iteratorProducts.hasNext()){
+		var product = iteratorProducts.current();
+		System.out.println(product);
+		iteratorProducts.hasNext();
+	}
+
 	}
 
     public static TaxCalculator getCalculator() {
@@ -248,5 +266,8 @@ public class Main {
 	// UIControl takes on the appearance of the extended class such as TextBox() & CheckBox()
 	public static void drawUIControl(UIControl control) {
     	control.draw();
+	}
+
+	private static class ProductOne {
 	}
 }

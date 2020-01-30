@@ -44,6 +44,9 @@ public class BrowseHistory {
         return new ArrayIterator(this);
     }
 
+    /**
+     * ArrayIterator Class that enables us to iterator between the browse history
+     */
     public class ArrayIterator implements Iterator<String> {
         private BrowseHistory browseHistory;
         private int index;
