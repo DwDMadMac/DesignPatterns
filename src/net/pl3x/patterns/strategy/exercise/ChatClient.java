@@ -4,8 +4,13 @@ package net.pl3x.patterns.strategy.exercise;
  * This class uses an encryption algorithm to encrypt a message before sending it out.
  *
  * What are the problems in this implementation?
+ * -> Adding new algorithm will required the program to be recompiled
+ *    which may break other features
+ *
  * refactor the code using the strategy pattern.
  * What are the benefits of the new implementation?
+ * -> This will allows us to apply different types of algorithms
+ *    dynamically without breaking any additional code
  */
 public class ChatClient {
     private String encryptionAlgorithm;

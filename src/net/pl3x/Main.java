@@ -25,6 +25,9 @@ import net.pl3x.patterns.strategy.BlackAndWhiteFilter;
 import net.pl3x.patterns.strategy.ImgStorage;
 import net.pl3x.patterns.strategy.JpegCompressor;
 import net.pl3x.patterns.strategy.PngCompressor;
+import net.pl3x.patterns.strategy.exercise.AesAlgorithm;
+import net.pl3x.patterns.strategy.exercise.ChClient;
+import net.pl3x.patterns.strategy.exercise.DesAlgorithm;
 import net.pl3x.polymorphism.CheckBox;
 
 public class Main {
@@ -299,6 +302,19 @@ public class Main {
 	);
 
 
+	/*
+	 * Strategy Exercise
+	 */
+	var chatAlgorithm = new ChClient();
+	System.out.println();
+	chatAlgorithm.send(
+			"AES",
+			new AesAlgorithm()
+	);
+	chatAlgorithm.send(
+			"DES",
+			new DesAlgorithm()
+	);
 	}
 
     public static TaxCalculator getCalculator() {
