@@ -7,7 +7,7 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
-import net.pl3x.patterns.memento.excercise.Document;
+import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
 import net.pl3x.patterns.state.BrushTool;
@@ -15,6 +15,8 @@ import net.pl3x.patterns.state.Canvas;
 import net.pl3x.patterns.state.EraserTool;
 import net.pl3x.patterns.state.SelectionTool;
 import net.pl3x.patterns.state.abuse.Stopwatch;
+import net.pl3x.patterns.state.exercise.Service;
+import net.pl3x.patterns.state.exercise.TravelMode;
 import net.pl3x.polymorphism.CheckBox;
 
 public class Main {
@@ -85,7 +87,7 @@ public class Main {
 	System.out.println(editor.getContentString());
 
 	/*
-	 * Exercise
+	 * Memento Exercise
 	 *
 	 * Implement the undo feature using the memento pattern with the Document class provided
 	 */
@@ -170,6 +172,25 @@ public class Main {
 	stopwatch.click();
 	stopwatch.click();
 
+	/*
+	  * State Pattern Exercise
+	  *
+	  * Identify the problem and refactor the code to use the state pattern
+	  * what are the benefits of the new implementation?
+	  * -> Application is Robust and extensible
+	  * -> If we wanted to add an addition travel mode say 'AIR' or 'SEA' we can add these implementations easily
+	  *
+	 */
+	var mapping = new Service();
+	mapping.setTravelMode(TravelMode.DRIVING);
+	System.out.println();
+	System.out.println(mapping.getTravelMode().toString().toLowerCase());
+	mapping.direction();
+	mapping.eta();
+	System.out.println();
+	mapping.setTravelMode(TravelMode.BICYCLING);
+	mapping.direction();
+	mapping.eta();
 	}
 
     public static TaxCalculator getCalculator() {

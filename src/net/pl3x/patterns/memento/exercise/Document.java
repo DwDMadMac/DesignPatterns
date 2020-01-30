@@ -1,4 +1,4 @@
-package net.pl3x.patterns.memento.excercise;
+package net.pl3x.patterns.memento.exercise;
 
 import net.pl3x.patterns.memento.EditorState;
 
