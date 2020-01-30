@@ -217,11 +217,13 @@ public class Main {
 	*/
 
 	// Fixed size array example
+	/*
 	var browserHistory = new BrowseHistory();
 	System.out.println();
 	browserHistory.push("a");
 	browserHistory.push("b");
 	browserHistory.push("c");
+	*/
 
 	/* Since we do not want anyone to know about the internals this 'forLoop' no longer works
 	for (var i = 0; i < browserHistory.getUrlsFixed().size(); i++){
@@ -232,17 +234,18 @@ public class Main {
 	/*
 	 * The benefits of using Iterators is that our main class coding is not breaking and we can
 	 * add addition implementation in our other classes with ease
-	 */
+	 *
 	Iterator iterator = browserHistory.createIterator();
 	while (iterator.hasNext()){
 		var url = iterator.current();
 		System.out.println(url);
 		iterator.hasNext();
 	}
+	*/
 
 	/*
 	 * Iterator Exercise
-	 */
+	 *
 	var productCollection = new ProductionCollection();
 	System.out.println();
 	productCollection.add("Product One");
@@ -255,6 +258,11 @@ public class Main {
 		System.out.println(product);
 		iteratorProducts.hasNext();
 	}
+	 */
+
+	/*
+	 * Strategy Pattern
+	 */
 
 	}
 
