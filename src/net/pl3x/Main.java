@@ -21,6 +21,10 @@ import net.pl3x.patterns.state.SelectionTool;
 import net.pl3x.patterns.state.abuse.Stopwatch;
 import net.pl3x.patterns.state.exercise.Service;
 import net.pl3x.patterns.state.exercise.TravelMode;
+import net.pl3x.patterns.strategy.BlackAndWhiteFilter;
+import net.pl3x.patterns.strategy.ImgStorage;
+import net.pl3x.patterns.strategy.JpegCompressor;
+import net.pl3x.patterns.strategy.PngCompressor;
 import net.pl3x.polymorphism.CheckBox;
 
 public class Main {
@@ -262,7 +266,38 @@ public class Main {
 
 	/*
 	 * Strategy Pattern
+	 *
+	 * This is what we call the Open-Closed Principle
+	 *
+	var imageStorage = new ImgStorage(
+			new JpegCompressor(),
+			new BlackAndWhiteFilter()
+	);
+	System.out.println();
+	imageStorage.store("a");
+	*/
+	/*
+	 * We can also pass these( JpegCompressor() & BlackAndWhiteFilter() ) objects to the same algorithm
+	 * -> This will allows us to apply different types of compressing and filters to the same image
+	 *
+	 * How To:
+	 * -> Add addition parameters to the store() method
+	 * -> Remove constructor inside ImgStorage() { } since it is no longer needed
+	 * -> Can also remove fields since we are adding the parameters inside the store() method
 	 */
+	var imageStorage = new ImgStorage();
+	System.out.println();
+	imageStorage.store(
+			"a",
+			new JpegCompressor(),
+			new BlackAndWhiteFilter()
+	);
+	imageStorage.store(
+			"a",
+			new PngCompressor(),
+			new BlackAndWhiteFilter()
+	);
+
 
 	}
 
