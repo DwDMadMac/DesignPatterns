@@ -7,10 +7,6 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
-import net.pl3x.patterns.iterator.BrowseHistory;
-import net.pl3x.patterns.iterator.Iterator;
-import net.pl3x.patterns.iterator.exercise.Product;
-import net.pl3x.patterns.iterator.exercise.ProductionCollection;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
@@ -28,6 +24,7 @@ import net.pl3x.patterns.strategy.PngCompressor;
 import net.pl3x.patterns.strategy.exercise.AesAlgorithm;
 import net.pl3x.patterns.strategy.exercise.ChClient;
 import net.pl3x.patterns.strategy.exercise.DesAlgorithm;
+import net.pl3x.patterns.templateMethod.exercise.CustomWindow;
 import net.pl3x.patterns.templateMethod.solution.TransferMoney;
 import net.pl3x.polymorphism.CheckBox;
 
@@ -347,6 +344,16 @@ public class Main {
 	 * This also now gets the Audit and then gets the task
 	 */
 	task.execute();
+
+	/*
+	 * Template Method Exercise
+	 *
+	 * With this example you can add custom methods before and after the window is closed
+	 * Once you have implemented your logic all you will need to do is call the close() method
+	 */
+	var taskExercise = new CustomWindow();
+	System.out.println();
+	taskExercise.close();
 
 
 

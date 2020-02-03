@@ -66,9 +66,9 @@ public abstract class Task {
      * All logic from here is inputted inside our sub-classes
      *
      * Here we must use the protected access modifier
-     * -> Protected is similiar to private
+     * -> Protected is similar to private
      * -> It does hide this method to the class
-     * -> But it makes it visible to the sub-calsses
+     * -> But it makes it visible to the sub-classes
      */
     protected abstract void doExecute();
 
