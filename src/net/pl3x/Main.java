@@ -315,6 +315,22 @@ public class Main {
 			"DES",
 			new DesAlgorithm()
 	);
+
+	/*
+	 * Template Method Pattern
+	 *
+	 * Transfer Money Example
+	 * -> Transfer Money between accounts
+	 * -> Generate Report finical report
+	 *
+	 *
+	 */
+
+
+
+
+
+
 	}
 
     public static TaxCalculator getCalculator() {
