@@ -28,6 +28,7 @@ import net.pl3x.patterns.strategy.PngCompressor;
 import net.pl3x.patterns.strategy.exercise.AesAlgorithm;
 import net.pl3x.patterns.strategy.exercise.ChClient;
 import net.pl3x.patterns.strategy.exercise.DesAlgorithm;
+import net.pl3x.patterns.templateMethod.solution.TransferMoney;
 import net.pl3x.polymorphism.CheckBox;
 
 public class Main {
@@ -323,9 +324,29 @@ public class Main {
 	 * -> Transfer Money between accounts
 	 * -> Generate Report finical report
 	 *
-	 *
+	 * Solution
+	 * -> Polymorphism which can use the Strategy Pattern
+	 * -> Inheritance
 	 */
-
+	var task = new TransferMoney();
+	System.out.println();
+	/*
+	 * By just calling the doExecute() method, only the output of the sub-class is called
+	 * This is a problem. The solution for this is to make this method protected vs public
+	 * Why not private?
+	 * -> Private method gives a compilation error since the method is an abstract
+	 * -> The solution for this is to make the method protected
+	 *
+	 * The doExecute() method gives a compilation error because it is not accessible
+	 * outside its class or sub-classes
+	 *
+	 * task.doExecute();
+	 */
+	/*
+	 * Now we only only able to use the public execute method inside the Task{} class
+	 * This also now gets the Audit and then gets the task
+	 */
+	task.execute();
 
 
 
