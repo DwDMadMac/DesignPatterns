@@ -7,7 +7,7 @@ package net.pl3x.patterns.command.solution.fx;
  * of class that may use this class
  */
 public class Button {
-    private System label;
+    private String label;
     private Command command;
 
     /**
@@ -38,11 +38,11 @@ public class Button {
         command.execute();
     }
 
-    public System getLabel() {
+    public String getLabel() {
         return label;
     }
 
-    public void setLabel(System label) {
+    public void setLabel(String label) {
         this.label = label;
     }
 }

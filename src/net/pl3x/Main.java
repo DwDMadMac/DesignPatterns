@@ -7,6 +7,10 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
+import net.pl3x.patterns.command.exercise.ContrastCommand;
+import net.pl3x.patterns.command.exercise.EditorContrast;
+import net.pl3x.patterns.command.exercise.EditorLabel;
+import net.pl3x.patterns.command.exercise.LabelCommand;
 import net.pl3x.patterns.command.solution.AddCustomerCommand;
 import net.pl3x.patterns.command.solution.BlackAndWhiteCommand;
 import net.pl3x.patterns.command.solution.CompositeCommand;
@@ -389,16 +393,41 @@ public class Main {
 	var boldCommand = new BoldCommand(documentCommandPattern, historyCommandPattern);
 	boldCommand.execute();
 	System.out.println(documentCommandPattern.getContent());
-	// This is not a good implement to undoing commands but rather creating an Undo{} class
-	// boldCommand.unexecute();
-	// System.out.println(documentCommandPattern.getContent());
-	/*
-	 * By creating this OOP system this allows both the bolCommand & undocommand object to communicate with
+	/* This is not a good implement to undoing commands but rather creating an Undo{} class
+	 * boldCommand.unexecute();
+	 * System.out.println(documentCommandPattern.getContent());
+	 * By creating this OOP system this allows both the bolCommand & undo command object to communicate with
 	 * the history object
 	 */
 	var undoCommand = new UndoCommand(historyCommandPattern);
 	undoCommand.execute();
 	System.out.println(documentCommandPattern.getContent());
+
+	/*
+	 * Command Pattern Exercise
+	 */
+	var historyCommandExercise = new net.pl3x.patterns.command.exercise.History();
+	var editorContrastCommandExercise = new EditorContrast();
+	var editorLabelCommandExercise = new EditorLabel();
+	System.out.println();
+	editorContrastCommandExercise.setContrast(10F);
+	editorLabelCommandExercise.setLabel("This is a custom label");
+
+	var contrastCommand = new ContrastCommand(editorContrastCommandExercise, historyCommandExercise);
+	var labelCommand = new LabelCommand(editorLabelCommandExercise, historyCommandExercise);
+	contrastCommand.execute();
+	labelCommand.execute();
+	System.out.println(editorContrastCommandExercise.getContrast());
+	System.out.println(editorLabelCommandExercise.getLabel());
+
+	editorLabelCommandExercise.setLabel("This is a custom label, TWO");
+	// Undo edits
+	var undoCommandExercise = new net.pl3x.patterns.command.exercise.UndoCommand(historyCommandExercise);
+	undoCommandExercise.execute();
+	System.out.println(editorContrastCommandExercise.getContrast());
+	System.out.println(editorLabelCommandExercise.getLabel());
+
+
 
 
 

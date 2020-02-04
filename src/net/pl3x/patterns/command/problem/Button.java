@@ -1,7 +1,7 @@
 package net.pl3x.patterns.command.problem;
 
 public class Button {
-    private System label;
+    private String label;
 
     /*
      * Every button should have a method called click()
@@ -21,11 +21,11 @@ public class Button {
 
     }
 
-    public System getLabel() {
+    public String getLabel() {
         return label;
     }
 
-    public void setLabel(System label) {
+    public void setLabel(String label) {
         this.label = label;
     }
 }
