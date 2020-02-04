@@ -8,7 +8,13 @@ import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
 import net.pl3x.patterns.command.solution.AddCustomerCommand;
+import net.pl3x.patterns.command.solution.BlackAndWhiteCommand;
+import net.pl3x.patterns.command.solution.CompositeCommand;
 import net.pl3x.patterns.command.solution.CustomerService;
+import net.pl3x.patterns.command.solution.ResizeCommand;
+import net.pl3x.patterns.command.solution.editor.BoldCommand;
+import net.pl3x.patterns.command.solution.editor.HtmlDocument;
+import net.pl3x.patterns.command.solution.editor.UndoCommand;
 import net.pl3x.patterns.command.solution.fx.Button;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
@@ -367,6 +373,32 @@ public class Main {
 	var button = new Button(command);
 	System.out.println();
 	button.click();
+
+	var composite = new CompositeCommand();
+	System.out.println();
+	composite.add(new ResizeCommand());
+	composite.add(new BlackAndWhiteCommand());
+	composite.execute(); // This will now execute each command one by one
+
+	// Testing Editor with Command Pattern
+	var historyCommandPattern = new net.pl3x.patterns.command.solution.editor.History(); // Full package location since there is already a History() package from memento patterns
+	var documentCommandPattern = new HtmlDocument();
+	System.out.println();
+	documentCommandPattern.setContent("Hello World");
+
+	var boldCommand = new BoldCommand(documentCommandPattern, historyCommandPattern);
+	boldCommand.execute();
+	System.out.println(documentCommandPattern.getContent());
+	// This is not a good implement to undoing commands but rather creating an Undo{} class
+	// boldCommand.unexecute();
+	// System.out.println(documentCommandPattern.getContent());
+	/*
+	 * By creating this OOP system this allows both the bolCommand & undocommand object to communicate with
+	 * the history object
+	 */
+	var undoCommand = new UndoCommand(historyCommandPattern);
+	undoCommand.execute();
+	System.out.println(documentCommandPattern.getContent());
 
 
 
