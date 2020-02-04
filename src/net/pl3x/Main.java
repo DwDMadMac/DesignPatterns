@@ -7,6 +7,9 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
+import net.pl3x.patterns.command.solution.AddCustomerCommand;
+import net.pl3x.patterns.command.solution.CustomerService;
+import net.pl3x.patterns.command.solution.fx.Button;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
@@ -359,6 +362,11 @@ public class Main {
 	 * Command Pattern
 	 *
 	 */
+	var service = new CustomerService(); // Customer Service Object
+	var command = new AddCustomerCommand(service); // Command Object
+	var button = new Button(command);
+	System.out.println();
+	button.click();
 
 
 
