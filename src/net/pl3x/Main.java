@@ -23,6 +23,9 @@ import net.pl3x.patterns.command.solution.fx.Button;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
+import net.pl3x.patterns.observer.exercise.StatusBar;
+import net.pl3x.patterns.observer.exercise.StockData;
+import net.pl3x.patterns.observer.exercise.StockListView;
 import net.pl3x.patterns.observer.solution.Chart;
 import net.pl3x.patterns.observer.solution.DataSource;
 import net.pl3x.patterns.observer.solution.SpreadSheet;
@@ -478,6 +481,45 @@ public class Main {
 	/*
 	 * Observer Pattern Exercise
 	 */
+	var statusBar = new StatusBar();
+	var stockListView = new StockListView();
+	System.out.println();
+	var stockOne = new StockData("stockOne", 50);
+	var stockTwo = new StockData("stockTwo", 100);
+	var stockThree = new StockData("stockThree", 200);
+	var stockFour = new StockData("stockFour", 400);
+	var stockFive = new StockData("stockFive", 500);
+
+	/*
+	 * Let's add the popular stocks to the status bar
+	 */
+	statusBar.addStock(stockOne);
+	statusBar.addStock(stockTwo);
+	System.out.println();
+
+	/*
+	 * Let's show the list of all the stocks
+	 */
+	stockListView.addStock(stockOne);
+	stockListView.addStock(stockTwo);
+	stockListView.addStock(stockThree);
+	stockListView.addStock(stockFour);
+	stockListView.addStock(stockFive);
+	System.out.println();
+
+	/*
+	 * Since the Status bar is watch this Stock it
+	 * Makes both the the 'Status Bar' & 'Stock List' to be updated
+	 */
+	stockTwo.setPrice(800);
+	System.out.println();
+
+	/*
+	 * Since the 'Status Bar' is not watching this
+	 * stock only the 'Stock List' is updated
+	 */
+	stockFive.setPrice(12000);
+	System.out.println();
 
 
 

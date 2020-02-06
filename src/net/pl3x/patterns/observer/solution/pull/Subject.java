@@ -18,11 +18,7 @@ public class Subject {
     public void removeObserver(Observer observer){
         observers.remove(observer);
     }
-    /*
-     * Using an 'int' is not very flexible because of the primitive params
-     * Using an 'Object' class allows you to pass any kind of objects or
-     * you can use generics
-     */
+
     public void notifyObservers() {
         for (var observer : observers){
             observer.update();

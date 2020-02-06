@@ -1,27 +1,28 @@
 package net.pl3x.patterns.observer.exercise;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
+/*
+ * In 'GOF' Book this is the 'Subject'
+ */
 public class Stock {
-    private String symbol;
-    private float price;
+    // Let's maintain the observers
+    private Deque<Observer> observers = new ArrayDeque<>();
 
-    public Stock(String symbol, float price) {
-        this.symbol = symbol;
-        this.price = price;
+    public void addObserver(Observer observer){
+        observers.add(observer);
     }
 
-    public float getPrice() {
-        return price;
+    public void removeObserver(Observer observer){
+        observers.remove(observer);
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return "Stock{" +
-                "symbol='" + symbol + '\'' +
-                ", price=" + price +
-                '}';
+    public void notifyObservers() {
+        for (var observer : observers) {
+            observer.newPrice();
+        }
     }
 }

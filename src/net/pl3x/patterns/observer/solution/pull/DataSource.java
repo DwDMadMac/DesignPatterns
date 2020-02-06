@@ -22,10 +22,6 @@ public class DataSource extends Subject {
 
     public void setValue(int value) {
         this.value = value;
-        /*
-         * This is basically saying this is the new value
-         * you don't need to know anything about me
-         */
         notifyObservers();
     }
 }
