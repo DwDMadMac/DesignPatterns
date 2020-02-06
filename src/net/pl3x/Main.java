@@ -521,6 +521,11 @@ public class Main {
 	stockFive.setPrice(12000);
 	System.out.println();
 
+	/*
+	 * Mediator Pattern
+	 */
+
+
 
 
 
