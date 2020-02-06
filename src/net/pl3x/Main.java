@@ -452,14 +452,28 @@ public class Main {
 
 	System.out.println();
 	var dataSourcePush = new net.pl3x.patterns.observer.solution.push.DataSource();
-		var sheet1Push = new net.pl3x.patterns.observer.solution.push.SpreadSheet();
-		var sheet2Push = new net.pl3x.patterns.observer.solution.push.SpreadSheet();
-		var chartPush = new net.pl3x.patterns.observer.solution.push.Chart();
+	var sheet1Push = new net.pl3x.patterns.observer.solution.push.SpreadSheet();
+	var sheet2Push = new net.pl3x.patterns.observer.solution.push.SpreadSheet();
+	var chartPush = new net.pl3x.patterns.observer.solution.push.Chart();
 
-		dataSourcePush.addObserver(sheet1Push);
-		dataSourcePush.addObserver(sheet2Push);
-		dataSourcePush.addObserver(chartPush);
-		dataSourcePush.setValue(1);
+	dataSourcePush.addObserver(sheet1Push);
+	dataSourcePush.addObserver(sheet2Push);
+	dataSourcePush.addObserver(chartPush);
+	dataSourcePush.setValue(1);
+
+	/*
+	 * Pull style of communication
+	 */
+	System.out.println();
+	var dataSourcePull = new net.pl3x.patterns.observer.solution.pull.DataSource();
+	var sheet1Pull = new net.pl3x.patterns.observer.solution.pull.SpreadSheet(dataSourcePull);
+	var sheet2Pull = new net.pl3x.patterns.observer.solution.pull.SpreadSheet(dataSourcePull);
+	var chartPull = new net.pl3x.patterns.observer.solution.pull.Chart(dataSourcePull);
+
+	dataSourcePull.addObserver(sheet1Pull);
+	dataSourcePull.addObserver(sheet2Pull);
+	dataSourcePull.addObserver(chartPull);
+	dataSourcePull.setValue(1);
 
 
 
