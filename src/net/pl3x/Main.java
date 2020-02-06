@@ -23,6 +23,9 @@ import net.pl3x.patterns.command.solution.fx.Button;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
+import net.pl3x.patterns.observer.solution.Chart;
+import net.pl3x.patterns.observer.solution.DataSource;
+import net.pl3x.patterns.observer.solution.SpreadSheet;
 import net.pl3x.patterns.state.BrushTool;
 import net.pl3x.patterns.state.Canvas;
 import net.pl3x.patterns.state.EraserTool;
@@ -433,6 +436,16 @@ public class Main {
 	 * Used in a lot of frameworks and applications, we use this pattern in situations
 	 * where the state of an object changes and we need to notify other objects of these changes
 	 */
+	System.out.println();
+	var dataSource = new DataSource();
+		var sheet1 = new SpreadSheet();
+		var sheet2 = new SpreadSheet();
+		var chart = new Chart();
+
+		dataSource.addObserver(sheet1);
+		dataSource.addObserver(sheet2);
+		dataSource.addObserver(chart);
+		dataSource.setValue(1);
 
 
 
