@@ -475,6 +475,11 @@ public class Main {
 	dataSourcePull.addObserver(chartPull);
 	dataSourcePull.setValue(1);
 
+	/*
+	 * Observer Pattern Exercise
+	 */
+
+
 
 
 
