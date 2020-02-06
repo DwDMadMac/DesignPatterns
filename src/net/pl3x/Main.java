@@ -427,6 +427,13 @@ public class Main {
 	System.out.println(editorContrastCommandExercise.getContrast());
 	System.out.println(editorLabelCommandExercise.getLabel());
 
+	/*
+	 * Observer Pattern
+	 *
+	 * Used in a lot of frameworks and applications, we use this pattern in situations
+	 * where the state of an object changes and we need to notify other objects of these changes
+	 */
+
 
 
 
