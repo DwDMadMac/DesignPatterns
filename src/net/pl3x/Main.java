@@ -20,6 +20,7 @@ import net.pl3x.patterns.command.solution.editor.BoldCommand;
 import net.pl3x.patterns.command.solution.editor.HtmlDocument;
 import net.pl3x.patterns.command.solution.editor.UndoCommand;
 import net.pl3x.patterns.command.solution.fx.Button;
+import net.pl3x.patterns.mediator.solution.ArticlesDialogBox;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
 import net.pl3x.patterns.memento.History;
@@ -524,7 +525,10 @@ public class Main {
 	/*
 	 * Mediator Pattern
 	 */
-
+		var dialog = new ArticlesDialogBox();
+		// Simulate a user selects an article, buttons becomes enabled, title box gets populated
+		System.out.println();
+		dialog.simulateUserInteraction();
 
 
 

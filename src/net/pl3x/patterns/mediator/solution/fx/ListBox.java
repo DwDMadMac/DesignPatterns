@@ -9,11 +9,16 @@ package net.pl3x.patterns.mediator.solution.fx;
 public class ListBox extends UIControl {
     private String selection;
 
+    public ListBox(DialogBox owner) {
+        super(owner); // Passing this to the constructor of the UIControl
+    }
+
     public String getSelection() {
         return selection;
     }
 
     public void setSelection(String selection) {
         this.selection = selection;
+        owner.changed(this); // this lets the owner know that it has been changed
     }
 }
