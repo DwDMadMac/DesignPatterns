@@ -437,7 +437,7 @@ public class Main {
 	 * where the state of an object changes and we need to notify other objects of these changes
 	 */
 	System.out.println();
-	var dataSource = new DataSource();
+		var dataSource = new DataSource();
 		var sheet1 = new SpreadSheet();
 		var sheet2 = new SpreadSheet();
 		var chart = new Chart();
@@ -446,6 +446,20 @@ public class Main {
 		dataSource.addObserver(sheet2);
 		dataSource.addObserver(chart);
 		dataSource.setValue(1);
+	/*
+	 * Push Style of communication
+	 */
+
+	System.out.println();
+	var dataSourcePush = new net.pl3x.patterns.observer.solution.push.DataSource();
+		var sheet1Push = new net.pl3x.patterns.observer.solution.push.SpreadSheet();
+		var sheet2Push = new net.pl3x.patterns.observer.solution.push.SpreadSheet();
+		var chartPush = new net.pl3x.patterns.observer.solution.push.Chart();
+
+		dataSourcePush.addObserver(sheet1Push);
+		dataSourcePush.addObserver(sheet2Push);
+		dataSourcePush.addObserver(chartPush);
+		dataSourcePush.setValue(1);
 
 
 
