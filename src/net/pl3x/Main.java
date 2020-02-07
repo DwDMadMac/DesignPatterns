@@ -7,6 +7,12 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
+import net.pl3x.patterns.chainOfResponsibility.solution.Authenticator;
+import net.pl3x.patterns.chainOfResponsibility.solution.Compressor;
+import net.pl3x.patterns.chainOfResponsibility.solution.Encryptor;
+import net.pl3x.patterns.chainOfResponsibility.solution.HttpRequest;
+import net.pl3x.patterns.chainOfResponsibility.solution.Logger;
+import net.pl3x.patterns.chainOfResponsibility.solution.WebServer;
 import net.pl3x.patterns.command.exercise.ContrastCommand;
 import net.pl3x.patterns.command.exercise.EditorContrast;
 import net.pl3x.patterns.command.exercise.EditorLabel;
@@ -550,7 +556,34 @@ public class Main {
 	 *
 	 * You use this pattern in situation where we need a pipeline or
 	 * a chain of objects for processing a request
+	 *
+	 * Building the processing pipeline
+	 * Authenticator -> Logger -> Compressor
 	 */
+	var compressor = new Compressor(null); // Since this is the lass handler in the chain we want to pass 'null'
+	var logger = new Logger(compressor); // We want to pass the next handler in the chain inside the logger param
+	var authenticator = new Authenticator(logger); // We want to pass the next handler in the chain inside the Authenticator param
+	// Since we created our chain of objects, we can build our webserver
+	var server = new WebServer(authenticator);
+	server.handle(new HttpRequest("admin","1234"));
+	System.out.println();
+	server.handle(new HttpRequest("ad","1234"));
+	System.out.println();
+	// Let's say you want to remove one of the handler steps you can do so by the following
+	var compressorTwo = new Compressor(null); // Since this is the lass handler in the chain we want to pass 'null'
+	var authenticatorTwo = new Authenticator(compressorTwo); // We want to pass the next handler in the chain inside the Authenticator param
+	var serverTwo = new WebServer(authenticatorTwo);
+	serverTwo.handle(new HttpRequest("admin","1234"));
+	// Let's say we want to add a new handler in the step, the WebServer is open for extensions since we do not have to edit this class
+	// Pipeline Layout
+	// Authenticator -> Compressor -> Encryptor
+		System.out.println();
+	var encryptorThree = new Encryptor(null);
+	var compressorThree = new Compressor(encryptorThree);
+	var authenticatorThree = new Authenticator(compressorThree);
+	var serverThree = new WebServer(authenticatorThree);
+	serverThree.handle(new HttpRequest("admin", "1234"));
+
 
 
 
