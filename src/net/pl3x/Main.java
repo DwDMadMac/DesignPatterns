@@ -525,10 +525,22 @@ public class Main {
 	/*
 	 * Mediator Pattern
 	 */
-		var dialog = new ArticlesDialogBox();
-		// Simulate a user selects an article, buttons becomes enabled, title box gets populated
-		System.out.println();
-		dialog.simulateUserInteraction();
+	var dialog = new ArticlesDialogBox();
+	// Simulate a user selects an article, buttons becomes enabled, title box gets populated
+	System.out.println();
+	dialog.simulateUserInteraction();
+
+	/*
+	 * Mediator Pattern Using the Observer Pattern Solution
+	 */
+	var dialogObserver = new net.pl3x.patterns.mediator.solution.observer.ArticlesDialogBox();
+	System.out.println();
+	dialogObserver.simulateUserInteraction();
+
+	/*
+	 * Mediator Pattern Using the Observer Pattern Exercise
+	 */
+
 
 
 
