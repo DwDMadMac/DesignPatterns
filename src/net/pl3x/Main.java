@@ -20,6 +20,7 @@ import net.pl3x.patterns.command.solution.editor.BoldCommand;
 import net.pl3x.patterns.command.solution.editor.HtmlDocument;
 import net.pl3x.patterns.command.solution.editor.UndoCommand;
 import net.pl3x.patterns.command.solution.fx.Button;
+import net.pl3x.patterns.mediator.exercise.SignUpDialogBox;
 import net.pl3x.patterns.mediator.solution.ArticlesDialogBox;
 import net.pl3x.patterns.memento.exercise.Document;
 import net.pl3x.patterns.memento.Editor;
@@ -540,6 +541,9 @@ public class Main {
 	/*
 	 * Mediator Pattern Using the Observer Pattern Exercise
 	 */
+	var signUpDialogBoxExercise = new SignUpDialogBox();
+	System.out.println();
+	signUpDialogBoxExercise.simulateSignUpDialogBox();
 
 
 

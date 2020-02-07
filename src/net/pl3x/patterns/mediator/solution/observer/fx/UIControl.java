@@ -1,7 +1,9 @@
 package net.pl3x.patterns.mediator.solution.observer.fx;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 /*
  * This is going to be the base class for all user interface classes
@@ -23,6 +25,8 @@ public abstract class UIControl {
      * So whenever there state changes, they are going to notify the DialogBox
      */
     private Deque<EventHandler> eventHandlers = new ArrayDeque<>();
+    // Couldn't use the Deque since it does not support null elements
+    private List<EventHandler> eventHandlerArrayList = new ArrayList<>();
 
     /**
      * Method to add new observers
@@ -30,14 +34,14 @@ public abstract class UIControl {
      * @param eventHandler Add new observer
      */
     public void addEventHandler(EventHandler eventHandler){
-        eventHandlers.add(eventHandler);
+        eventHandlerArrayList.add(eventHandler);
     }
 
     /**
      * How we notify a dialogBox
      */
     protected void notifyEventHandlers() {
-       for (var eventHandler : eventHandlers) {
+       for (var eventHandler : eventHandlerArrayList) {
            eventHandler.handle();
        }
     }
