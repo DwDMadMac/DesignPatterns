@@ -545,6 +545,13 @@ public class Main {
 	System.out.println();
 	signUpDialogBoxExercise.simulateSignUpDialogBox();
 
+	/*
+	 * Chain Of Responsibility Pattern
+	 *
+	 * You use this pattern in situation where we need a pipeline or
+	 * a chain of objects for processing a request
+	 */
+
 
 
 
