@@ -7,6 +7,11 @@ import net.pl3x.inheritance.TextBox;
 import net.pl3x.inheritance.UIControl;
 import net.pl3x.interfaces.TaxCalculator;
 import net.pl3x.interfaces.TaxCalculator2019;
+import net.pl3x.patterns.chainOfResponsibility.exercise.solution.ExcelFiles;
+import net.pl3x.patterns.chainOfResponsibility.exercise.solution.FormatReader;
+import net.pl3x.patterns.chainOfResponsibility.exercise.solution.FormatRequest;
+import net.pl3x.patterns.chainOfResponsibility.exercise.solution.NumberFiles;
+import net.pl3x.patterns.chainOfResponsibility.exercise.solution.QuickBookFiles;
 import net.pl3x.patterns.chainOfResponsibility.solution.Authenticator;
 import net.pl3x.patterns.chainOfResponsibility.solution.Compressor;
 import net.pl3x.patterns.chainOfResponsibility.solution.Encryptor;
@@ -585,6 +590,14 @@ public class Main {
 	serverThree.handle(new HttpRequest("admin", "1234"));
 
 
+	/*
+	 * Chain Of Responsibility Pattern exercise
+	 *
+	 * Pipeline
+	 * Excel -> Number -> QuickBook
+	 */
+	System.out.println();
+	accountingFiles();
 
 
 
@@ -593,6 +606,27 @@ public class Main {
 
 
 
+
+
+	}
+
+
+	/*
+	 * Chain Of Responsibility Pattern exercise
+	 *
+	 * Pipeline
+	 * Excel -> Number -> QuickBook
+	 */
+	public static void accountingFiles() {
+		var formatedFiles = FormatReader.getFormat();
+		formatedFiles.read("dataFile.xls");
+		formatedFiles.read("datafile.numbers");
+		formatedFiles.read("dataFile.qbw");
+		/*
+		 * Removing failed file extension to continue with course
+		 * This gives an exception out "File format not support"
+		 */
+		// formatedFiles.read("dataFile.fail");
 	}
 
     public static TaxCalculator getCalculator() {

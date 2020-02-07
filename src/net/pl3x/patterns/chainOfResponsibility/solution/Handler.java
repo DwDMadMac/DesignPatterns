@@ -49,5 +49,5 @@ public abstract class Handler {
      * @param request Check for processed or not
      * @return Return true if it was processed
      */
-    public abstract boolean doHandle(HttpRequest request);
+    protected abstract boolean doHandle(HttpRequest request);
 }
