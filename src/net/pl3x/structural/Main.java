@@ -1,5 +1,6 @@
 package net.pl3x.structural;
 
+import net.pl3x.structural.patterns.composite.exercise.problem.Demo;
 import net.pl3x.structural.patterns.composite.problem.Group;
 import net.pl3x.structural.patterns.composite.problem.Shape;
 
@@ -84,6 +85,13 @@ public class Main {
         groupSolution.add(groupSolution2);
         groupSolution.render(); // Render our top group and render the other groups recursively
         groupSolution.move();
+        System.out.println();
+        /*
+         * Composite Pattern Exercise
+         */
+        Demo.show(); // Problem
+        System.out.println();
+        // Solution
 
 
 
