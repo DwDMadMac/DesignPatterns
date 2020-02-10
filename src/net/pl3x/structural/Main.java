@@ -1,4 +1,7 @@
-package net.pl3x.creational;
+package net.pl3x.structural;
+
+import net.pl3x.structural.patterns.composite.problem.Group;
+import net.pl3x.structural.patterns.composite.problem.Shape;
 
 /*
  * The Structural Design Patterns
@@ -7,6 +10,48 @@ package net.pl3x.creational;
  */
 public class Main {
     public static void main(String[] args){
+        /*
+         * Composite Pattern
+         * -> We use this pattern were we want to represent an hierarchy of objects
+         */
+        var group1 = new Group();
+        // Let's add to imaginary squares in this group
+        group1.add(new Shape()); // Imaginary Square
+        group1.add(new Shape()); // Imaginary Square
+
+
+        var group2 = new Group();
+        // Let's add to imaginary Circles in this group
+        group2.add(new Shape()); // Imaginary Circle
+        group2.add(new Shape()); // Imaginary Circle
+
+        // Now let's combine Group1 & Group2 inside a new group
+        var group = new Group();
+        /*
+         * We get a complementation error because the add method is expecting a shape
+         * object. Our Group{} and Shape{} classes are completely different,
+         * they have nothing in common. So we cannot add a group inside a group
+         *
+         * To fix this, we can go back into our Group{} class and replaced the add() method parameter with an Object{}
+         */
+        group.add(group1); // After making the modifications to the shapes object this no longer has an complementation error
+        group.add(group2);
+        group.render(); // Render our top group and render the other groups recursively
+        /*
+         * We have yet to use the composite pattern design
+         *
+         * What is the problem, Looking at the Group{} class we have to check the type of the object inside the render() method
+         * and explicitly cast it to a new type before we can call the render() method. If we had other methods like move() or resize()
+         * we would have to repeat the same coding structure that is inside the render() method. Basically would have to iterate
+         * over all the objects in this group & for each object we would have to see if we are dealing with a shape then convert it
+         * to a shape otherwise we would have to convert it to a group instead. This makes the implementation complex and quoting Mosh "ugly"
+         *
+         * The Composite Design Pattern allows us to treat this the same way. Whenever we are dealing with an individual shape or a group
+         * we can work with them the same way.
+         */
+
+
+
 
     }
 }

@@ -67,7 +67,7 @@ import net.pl3x.behavioural.polymorphism.CheckBox;
 /*
  * The Behavioural Design Patterns
  *
- * Which are
+ * Which are interaction or communication between objects
  */
 public class Main {
 
