@@ -1,33 +1,22 @@
 package net.pl3x.patterns.visitor.exercise.solution;
 
-public class FilterOperation implements Segment {
+/**
+ * This class in the Visitor Interface that contains two concrete elements are params
+ *
+ * If we want to add new standard filters this is the location you would want to add it to
+ */
+public interface FilterOperation {
     /**
-     * Add Noise filter operation
+     * This method will apply a filter to the format segment
      *
-     * @param noiseFilter Add Noise Filter
+     * @param formatSegment Apply format segment
      */
-    @Override
-    public void apply(NoiseFilter noiseFilter) {
-        System.out.println("Noise Filter Added");
-    }
+    void apply (FormatSegment formatSegment);
 
     /**
-     * Add Reverb Filter operation
+     * This method will apply a filter to the fact segment
      *
-     * @param reverbFilter Add Reverb Filter
+     * @param factSegment Apply fact segment
      */
-    @Override
-    public void apply(ReverbFilter reverbFilter) {
-        System.out.println("Reverb Filter Add");
-    }
-
-    /**
-     * Add Normalize Filter operation
-     *
-     * @param normalizeFilter Add Normalize Filter
-     */
-    @Override
-    public void apply(NormalizeFilter normalizeFilter) {
-        System.out.println("Normalize Filter Added");
-    }
+    void apply (FactSegment factSegment);
 }

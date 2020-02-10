@@ -20,28 +20,38 @@ import java.util.List;
  */
 
 /**
- * This class will be the implementation of all and new filters added which is a concrete class
+ * This class will be the core of our exercise where we will generate the segment list and
+ * simulate reading a wav file while building segments
  */
 public class WavFile {
-    private List<Filters> filtersList = new ArrayList<>();
+    private List<Segment> segmentsList = new ArrayList<>();
 
     /**
-     * This method adds a new filter
+     * for exercise purposes we will simulate reading a wav file
+     * and then the building of segments
      *
-     * @param filter Add new filter
+     * @param fileName Read file name
+     * @return Return wav file
      */
-    public void add(Filters filter) {
-        filtersList.add(filter);
+    public static WavFile read(String fileName){
+        // Simulate reading a wav file and building segments
+        var wavFile = new WavFile();
+        wavFile.segmentsList.add(new FormatSegment());
+        wavFile.segmentsList.add(new FactSegment());
+        wavFile.segmentsList.add(new FactSegment());
+        wavFile.segmentsList.add(new FactSegment());
+
+        return wavFile;
     }
 
     /**
-     * This method is an extensibility point, which passes new operations
+     * This method is an extensibility point, which passes new operations (filters)
      * to it without modifying it
      *
-     * @param segment Pass new operation
+     * @param filterOperation Pass new filter
      */
-    public void execute(Segment segment) {
-        for (var filter : filtersList)
-            filter.execute(segment);
+    public void execute(FilterOperation filterOperation) {
+        for (var segment : segmentsList)
+            segment.applyFilter(filterOperation);
     }
 }

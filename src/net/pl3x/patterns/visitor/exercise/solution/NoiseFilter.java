@@ -1,13 +1,23 @@
 package net.pl3x.patterns.visitor.exercise.solution;
 
-public class NoiseFilter implements Filters {
+public class NoiseFilter implements FilterOperation {
     /**
-     * Gather the operation from the Segment class
+     * This method will apply the Noise filter to the format segment
      *
-     * @param segment Get operation
+     * @param formatSegment Apply format segment
      */
     @Override
-    public void execute(Segment segment) {
-        segment.apply(this);
+    public void apply(FormatSegment formatSegment) {
+        System.out.println("Apply Noise filter to format segment.");
+    }
+
+    /**
+     * This method will apply the Noise filter to the fact segment
+     *
+     * @param factSegment Apply fact segment
+     */
+    @Override
+    public void apply(FactSegment factSegment) {
+        System.out.println("Apply Noise filter to fact segment.");
     }
 }

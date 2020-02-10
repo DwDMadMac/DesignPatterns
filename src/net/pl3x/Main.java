@@ -644,11 +644,20 @@ public class Main {
 	 * Visitor Pattern Exercise
 	 */
 	System.out.println();
+	/*
+	 * This implementation is not a great pattern for adding new filters
+	 * revamped to implement the proper way of the Visitor Pattern
 	var visitorExercise = new WavFile();
 	visitorExercise.add(new NoiseFilter());
 	visitorExercise.add( new NormalizeFilter());
 	visitorExercise.add(new ReverbFilter());
 	visitorExercise.execute(new FilterOperation());
+	 */
+	var wavFileVisitorExercise = WavFile.read("testFile.wav");
+	wavFileVisitorExercise.execute(new NoiseFilter());
+	wavFileVisitorExercise.execute(new ReverbFilter());
+	wavFileVisitorExercise.execute(new NormalizeFilter());
+
 
 
 
