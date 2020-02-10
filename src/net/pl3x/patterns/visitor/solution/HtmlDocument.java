@@ -1,4 +1,4 @@
-package net.pl3x.patterns.visitor.problem;
+package net.pl3x.patterns.visitor.solution;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,14 @@ public class HtmlDocument {
     }
 
     /**
-     * This methods iterates over its nodes and ask each other to highlight itself
+     * This method is an extensibility point, which passes new operations to it
+     * without modifying it
+     *
+     * @param operation Pass new operation
      */
-    public void highlight() {
-        // polymorphism principle
+    public void execute(Operation operation){
         for (var node : nodes){
-            node.highlight();
+            node.execute(operation);
         }
     }
 }

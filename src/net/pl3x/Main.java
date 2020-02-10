@@ -58,6 +58,10 @@ import net.pl3x.patterns.strategy.exercise.ChClient;
 import net.pl3x.patterns.strategy.exercise.DesAlgorithm;
 import net.pl3x.patterns.templateMethod.exercise.CustomWindow;
 import net.pl3x.patterns.templateMethod.solution.TransferMoney;
+import net.pl3x.patterns.visitor.problem.AnchorNode;
+import net.pl3x.patterns.visitor.problem.HeadingNode;
+import net.pl3x.patterns.visitor.solution.HighlightOperation;
+import net.pl3x.patterns.visitor.solution.PlainTextOperation;
 import net.pl3x.polymorphism.CheckBox;
 
 public class Main {
@@ -598,6 +602,44 @@ public class Main {
 	 */
 	System.out.println();
 	accountingFiles();
+
+
+	/*
+	 * Visitor Patter
+	 * -> Add new operations to an object structure without modifying it
+	 */
+	System.out.println();
+	var documentVisitor = new net.pl3x.patterns.visitor.problem.HtmlDocument();
+	documentVisitor.add(new HeadingNode());
+	documentVisitor.add(new AnchorNode());
+	// Lets add syntax highlighting in our document
+	documentVisitor.highlight();
+	/*
+	 * Lets say next day we want to implement a new operation in this object structure
+	 * Perhaps we want to convert an HTML document to plain text. We only want to extract the
+	 * text inside the document. We have to go back to our 'HtmlNode' Interface and add
+	 * a new method say 'void plainText();' Then we would have to add this method to every
+	 * class that implements the 'HtmlNode' Interface as well as our 'HtmlDocument' Class.
+	 * We would also have to add an additional method inside the 'HtmlDocument' Class that
+	 * iterates  over every node. This violates the OCP (Open Close Principle)
+	 */
+	/*
+	 * Visitor Pattern Solution
+	 */
+	System.out.println();
+	var docVisitorSolution = new net.pl3x.patterns.visitor.solution.HtmlDocument();
+	docVisitorSolution.add(new net.pl3x.patterns.visitor.solution.HeadingNode());
+	docVisitorSolution.add(new net.pl3x.patterns.visitor.solution.AnchorNode());
+	docVisitorSolution.execute(new HighlightOperation());
+	// Lets add a new operation
+	System.out.println();
+	docVisitorSolution.execute(new PlainTextOperation());
+	/*
+	 * Visitor Pattern Exercise
+	 */
+	System.out.println();
+
+
 
 
 
