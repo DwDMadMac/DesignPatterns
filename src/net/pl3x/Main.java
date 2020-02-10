@@ -50,6 +50,7 @@ import net.pl3x.patterns.state.abuse.Stopwatch;
 import net.pl3x.patterns.state.exercise.Service;
 import net.pl3x.patterns.state.exercise.TravelMode;
 import net.pl3x.patterns.strategy.BlackAndWhiteFilter;
+import net.pl3x.patterns.strategy.Filter;
 import net.pl3x.patterns.strategy.ImgStorage;
 import net.pl3x.patterns.strategy.JpegCompressor;
 import net.pl3x.patterns.strategy.PngCompressor;
@@ -58,6 +59,11 @@ import net.pl3x.patterns.strategy.exercise.ChClient;
 import net.pl3x.patterns.strategy.exercise.DesAlgorithm;
 import net.pl3x.patterns.templateMethod.exercise.CustomWindow;
 import net.pl3x.patterns.templateMethod.solution.TransferMoney;
+import net.pl3x.patterns.visitor.exercise.solution.FilterOperation;
+import net.pl3x.patterns.visitor.exercise.solution.NoiseFilter;
+import net.pl3x.patterns.visitor.exercise.solution.NormalizeFilter;
+import net.pl3x.patterns.visitor.exercise.solution.ReverbFilter;
+import net.pl3x.patterns.visitor.exercise.solution.WavFile;
 import net.pl3x.patterns.visitor.problem.AnchorNode;
 import net.pl3x.patterns.visitor.problem.HeadingNode;
 import net.pl3x.patterns.visitor.solution.HighlightOperation;
@@ -638,6 +644,11 @@ public class Main {
 	 * Visitor Pattern Exercise
 	 */
 	System.out.println();
+	var visitorExercise = new WavFile();
+	visitorExercise.add(new NoiseFilter());
+	visitorExercise.add( new NormalizeFilter());
+	visitorExercise.add(new ReverbFilter());
+	visitorExercise.execute(new FilterOperation());
 
 
 

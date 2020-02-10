@@ -1,4 +1,4 @@
-package net.pl3x.patterns.visitor.exercise;
+package net.pl3x.patterns.visitor.exercise.problem;
 
 import java.util.ArrayList;
 import java.util.List;
