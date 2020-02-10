@@ -11,7 +11,7 @@ import net.pl3x.structural.patterns.composite.problem.Shape;
 public class Main {
     public static void main(String[] args){
         /*
-         * Composite Pattern
+         * Composite Pattern - Problem
          * -> We use this pattern were we want to represent an hierarchy of objects
          */
         var group1 = new Group();
@@ -37,6 +37,7 @@ public class Main {
         group.add(group1); // After making the modifications to the shapes object this no longer has an complementation error
         group.add(group2);
         group.render(); // Render our top group and render the other groups recursively
+        System.out.println();
         /*
          * We have yet to use the composite pattern design
          *
@@ -49,6 +50,40 @@ public class Main {
          * The Composite Design Pattern allows us to treat this the same way. Whenever we are dealing with an individual shape or a group
          * we can work with them the same way.
          */
+        /*
+         * Composite Pattern - Solution
+         *
+         * Objects: List<Objects> -> Objects: List<Component>
+         * -> A list of Components can be a shape or a group
+         * Group
+         * -> Add(obj: Object) -> add(cmp: Component)
+         * GOFBook
+         * 0..* = zero or more
+         */
+        var groupSolution1 = new net.pl3x.structural.patterns.composite.solution.Group();
+        // Let's add to imaginary squares in this group
+        groupSolution1.add(new net.pl3x.structural.patterns.composite.solution.Shape()); // Imaginary Square
+        groupSolution1.add(new net.pl3x.structural.patterns.composite.solution.Shape()); // Imaginary Square
+
+
+        var groupSolution2 = new net.pl3x.structural.patterns.composite.solution.Group();
+        // Let's add to imaginary Circles in this group
+        groupSolution2.add(new net.pl3x.structural.patterns.composite.solution.Shape()); // Imaginary Circle
+        groupSolution2.add(new net.pl3x.structural.patterns.composite.solution.Shape()); // Imaginary Circle
+
+        // Now let's combine Group1 & Group2 inside a new group
+        var groupSolution = new net.pl3x.structural.patterns.composite.solution.Group();
+        /*
+         * We get a complementation error because the add method is expecting a shape
+         * object. Our Group{} and Shape{} classes are completely different,
+         * they have nothing in common. So we cannot add a group inside a group
+         *
+         * To fix this, we can go back into our Group{} class and replaced the add() method parameter with an Object{}
+         */
+        groupSolution.add(groupSolution1); // After making the modifications to the shapes object this no longer has an complementation error
+        groupSolution.add(groupSolution2);
+        groupSolution.render(); // Render our top group and render the other groups recursively
+        groupSolution.move();
 
 
 
