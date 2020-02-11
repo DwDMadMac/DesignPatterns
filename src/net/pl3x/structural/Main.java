@@ -152,6 +152,18 @@ public class Main {
          * Caramel{} Object but we could also use inheritance
          */
         imageViewSolution.apply(new CaramelFilter(new Caramel()));
+        System.out.println();
+        /*
+         * Adapter Pattern Exercise
+         *
+         * The problem
+         * In the Gmail package, you can find the class or classes that Google provides to connect to Gmail.
+         * These classes are shipped as a third-party library that we can use to adapt to our application.
+         * If we want to re-use these classes, we must convert the format to our application layout using
+         * the Adapter Pattern since the GmailClient class does not extend our Email Provider interface
+         *
+         * Let's use the adapter pattern to convert the interface of GmailClient
+         */
 
 
 
