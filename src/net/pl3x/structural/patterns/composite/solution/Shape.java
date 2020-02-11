@@ -1,6 +1,8 @@
 package net.pl3x.structural.patterns.composite.solution;
 
 /*
+ * this is the Component Class that implements the Component Interface in the GOF Book
+ *
  * This is potentially the base class for different types of shapes
  * e.g. Square class, circle class, triangle class, etc. that would extend this shape class
  *

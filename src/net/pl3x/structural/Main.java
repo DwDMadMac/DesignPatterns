@@ -1,6 +1,9 @@
 package net.pl3x.structural;
 
 import net.pl3x.structural.patterns.composite.exercise.problem.Demo;
+import net.pl3x.structural.patterns.composite.exercise.solution.HumanResource;
+import net.pl3x.structural.patterns.composite.exercise.solution.Team;
+import net.pl3x.structural.patterns.composite.exercise.solution.Truck;
 import net.pl3x.structural.patterns.composite.problem.Group;
 import net.pl3x.structural.patterns.composite.problem.Shape;
 
@@ -91,7 +94,28 @@ public class Main {
          */
         Demo.show(); // Problem
         System.out.println();
-        // Solution
+        /* Solution
+         * With the composite pattern we are now able to add any additional components if we need
+         * to without needing to modify any of the existing code. We are also allocating less
+         * memory when it comes to adding a new component which in return is more robust
+         */
+        System.out.println();
+        var compositeExercise = new Team();
+        compositeExercise.add(new Truck());
+        compositeExercise.add(new HumanResource());
+        compositeExercise.add(new HumanResource());
+
+        var compositeExerciseTwo = new Team();
+        compositeExerciseTwo.add(new Truck());
+        compositeExerciseTwo.add(new HumanResource());
+        compositeExerciseTwo.add(new HumanResource());
+
+        var compositeExerciseTeam = new Team();
+        compositeExerciseTeam.add(compositeExercise);
+        compositeExerciseTeam.add(compositeExerciseTwo);
+
+        compositeExerciseTeam.render();
+
 
 
 
