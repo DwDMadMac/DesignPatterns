@@ -1,5 +1,9 @@
 package net.pl3x.structural;
 
+import net.pl3x.structural.patterns.adapter.problem.Image;
+import net.pl3x.structural.patterns.adapter.problem.ImageView;
+import net.pl3x.structural.patterns.adapter.problem.VividFilter;
+import net.pl3x.structural.patterns.adapter.problem.avaFilters.Caramel;
 import net.pl3x.structural.patterns.composite.exercise.problem.Demo;
 import net.pl3x.structural.patterns.composite.exercise.solution.HumanResource;
 import net.pl3x.structural.patterns.composite.exercise.solution.Team;
@@ -115,6 +119,30 @@ public class Main {
         compositeExerciseTeam.add(compositeExerciseTwo);
 
         compositeExerciseTeam.render();
+
+        /*
+         * Adapter Pattern
+         * -> We use this pattern to convert an interface of a class to a different form
+         * -> With this pattern we can convert an interface object to a different form
+         *
+         * Example
+         * Let's say we want to build a mobile app to create a filter for an image
+         * So we can capture and load a photo and apply various filters to it
+         */
+        var imageView = new ImageView(new Image()); // Create a new image object
+        imageView.apply(new VividFilter()); // Now this applies the vivid filter to the new image
+        /* Let's say we want to use a library with tons of filters
+         *
+         * We a compilation error because the interface of the Caramel{} class does not match
+         * what the apply() method is expecting. Our apply method is expecting an instances of
+         * a class that implements the Filter{} interface. The Filter{} interface says we
+         * should have a method called apply(). The Caramel{} class does not implement that
+         * apply() or does not implement the Filter{} interface. this is where we can use the
+         * adaptive pattern. We the adaptive pattern, we can convert the interface of the Caramel{}
+         * class to a different form that matches what we need.
+         */
+        imageView.apply(new Caramel()); // We get a compilation  error.
+
 
 
 
