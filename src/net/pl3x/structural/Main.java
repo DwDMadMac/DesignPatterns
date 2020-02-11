@@ -3,7 +3,8 @@ package net.pl3x.structural;
 import net.pl3x.structural.patterns.adapter.problem.Image;
 import net.pl3x.structural.patterns.adapter.problem.ImageView;
 import net.pl3x.structural.patterns.adapter.problem.VividFilter;
-import net.pl3x.structural.patterns.adapter.problem.avaFilters.Caramel;
+import net.pl3x.structural.patterns.adapter.solution.CaramelFilter;
+import net.pl3x.structural.patterns.adapter.solution.avaFilters.Caramel;
 import net.pl3x.structural.patterns.composite.exercise.problem.Demo;
 import net.pl3x.structural.patterns.composite.exercise.solution.HumanResource;
 import net.pl3x.structural.patterns.composite.exercise.solution.Team;
@@ -129,6 +130,7 @@ public class Main {
          * Let's say we want to build a mobile app to create a filter for an image
          * So we can capture and load a photo and apply various filters to it
          */
+        System.out.println();
         var imageView = new ImageView(new Image()); // Create a new image object
         imageView.apply(new VividFilter()); // Now this applies the vivid filter to the new image
         /* Let's say we want to use a library with tons of filters
@@ -141,7 +143,15 @@ public class Main {
          * adaptive pattern. We the adaptive pattern, we can convert the interface of the Caramel{}
          * class to a different form that matches what we need.
          */
-        imageView.apply(new Caramel()); // We get a compilation  error.
+        // imageView.apply(new Caramel()); // We get a compilation  error.
+        System.out.println();
+        var imageViewSolution = new net.pl3x.structural.patterns.adapter.solution.ImageView(new net.pl3x.structural.patterns.adapter.solution.Image());
+        /* Now we can apply the Caramel Filter using the adaptive class first then the library class
+         *
+         * In tis example, we are using composition because our CaramelFilter{} class is composed of the
+         * Caramel{} Object but we could also use inheritance
+         */
+        imageViewSolution.apply(new CaramelFilter(new Caramel()));
 
 
 
