@@ -3,6 +3,9 @@ package net.pl3x.structural.patterns.composite.exercise.solution;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents the implementation of teams
+ */
 public class Team implements Component {
     //private List<Object> resources = new ArrayList<>();
     private List<Component> components = new ArrayList<>();
