@@ -1,5 +1,8 @@
 package net.pl3x.structural;
 
+import net.pl3x.structural.patterns.adapter.exercise.solution.EmailClient;
+import net.pl3x.structural.patterns.adapter.exercise.solution.GmailAdapter;
+import net.pl3x.structural.patterns.adapter.exercise.solution.gmail.GmailClient;
 import net.pl3x.structural.patterns.adapter.problem.Image;
 import net.pl3x.structural.patterns.adapter.problem.ImageView;
 import net.pl3x.structural.patterns.adapter.problem.VividFilter;
@@ -163,7 +166,13 @@ public class Main {
          * the Adapter Pattern since the GmailClient class does not extend our Email Provider interface
          *
          * Let's use the adapter pattern to convert the interface of GmailClient
+         *
+         * Adapter Pattern Exercise
+         * The Solution
          */
+        var adapterExerciseSolution = new EmailClient();
+        adapterExerciseSolution.addProvider(new GmailAdapter(new GmailClient()));
+        adapterExerciseSolution.downloadEmails();
 
 
 
