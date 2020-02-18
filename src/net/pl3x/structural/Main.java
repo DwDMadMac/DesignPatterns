@@ -220,6 +220,12 @@ public class Main {
          *
          *
          */
+        // Problem
+        System.out.println();
+        net.pl3x.structural.patterns.decorator.exercise.problem.Demo.show();
+        // Solution
+        System.out.println();
+        net.pl3x.structural.patterns.decorator.exercise.solution.Demo.show();
 
 
 
