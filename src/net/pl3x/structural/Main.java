@@ -215,6 +215,13 @@ public class Main {
         // Let's use the decorator pattern now
         storeCreditcard(new net.pl3x.structural.patterns.decorator.solution.EncryptedCloudStream(new CompressedCloudStream(new net.pl3x.structural.patterns.decorator.solution.CloudStream())));
 
+        /*
+         * Decorator Pattern Exercise
+         *
+         *
+         */
+
+
 
 
 
