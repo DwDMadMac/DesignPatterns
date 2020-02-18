@@ -16,6 +16,8 @@ import net.pl3x.structural.patterns.composite.problem.Group;
 import net.pl3x.structural.patterns.composite.problem.Shape;
 import net.pl3x.structural.patterns.decorator.problem.CloudStream;
 import net.pl3x.structural.patterns.decorator.problem.EncryptedCloudStream;
+import net.pl3x.structural.patterns.decorator.solution.CompressedCloudStream;
+import net.pl3x.structural.patterns.decorator.solution.Stream;
 
 /*
  * The Structural Design Patterns
@@ -199,11 +201,33 @@ public class Main {
          * With a decorator pattern you can add additional behaviours to an
          * objects
          */
+        /*
+         * Decorator Pattern Solution
+         *
+         * Implementing the decorator pattern is similar to the adaptor pattern
+         * The difference between the two patterns is the adaptor pattern we
+         * change the we change the interface of a class to a different form but
+         * with the decorator pattern we add additional behaviours to an object
+         * in both of the patterns we use composition
+         */
+        System.out.println();
+        storeCreditcard(new net.pl3x.structural.patterns.decorator.solution.CloudStream());
+        // Let's use the decorator pattern now
+        storeCreditcard(new net.pl3x.structural.patterns.decorator.solution.EncryptedCloudStream(new CompressedCloudStream(new net.pl3x.structural.patterns.decorator.solution.CloudStream())));
 
 
 
 
 
 
+    }
+
+    /*
+     * Decorator Pattern Solution
+     *
+     * Storing a users CC info
+     */
+    public static void storeCreditcard(Stream stream) {
+        stream.write("1234-1234-1234-1234");
     }
 }
