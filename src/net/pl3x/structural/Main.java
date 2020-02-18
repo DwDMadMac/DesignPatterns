@@ -20,6 +20,7 @@ import net.pl3x.structural.patterns.decorator.solution.CompressedCloudStream;
 import net.pl3x.structural.patterns.decorator.solution.Stream;
 import net.pl3x.structural.patterns.facade.problem.Message;
 import net.pl3x.structural.patterns.facade.problem.NotificationServer;
+import net.pl3x.structural.patterns.facade.solution.NotificationService;
 
 /*
  * The Structural Design Patterns
@@ -239,6 +240,7 @@ public class Main {
          * -> Let's say we are going to build a mobile app and as part of this app
          * we are going to add push notifications to its users
          */
+        System.out.println();
         // Create notification server
         var server = new NotificationServer();
         // Connect to server
@@ -257,7 +259,13 @@ public class Main {
          * Every time we want to send a push notification we have to follow
          * all the steps above which. These are a lot of steps to follow and
          * to eliminate the steps, we can use the facade pattern
+         *
+         * With the new implementation of facade pattern we cal simple call the
+         * NotificationServer() class and send the message
          */
+        var service = new NotificationService();
+        service.send("Message, Hello World", "Target");
+
 
 
 
