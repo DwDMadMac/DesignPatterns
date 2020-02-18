@@ -18,6 +18,8 @@ import net.pl3x.structural.patterns.decorator.problem.CloudStream;
 import net.pl3x.structural.patterns.decorator.problem.EncryptedCloudStream;
 import net.pl3x.structural.patterns.decorator.solution.CompressedCloudStream;
 import net.pl3x.structural.patterns.decorator.solution.Stream;
+import net.pl3x.structural.patterns.facade.problem.Message;
+import net.pl3x.structural.patterns.facade.problem.NotificationServer;
 
 /*
  * The Structural Design Patterns
@@ -226,6 +228,36 @@ public class Main {
         // Solution
         System.out.println();
         net.pl3x.structural.patterns.decorator.exercise.solution.Demo.show();
+
+        /*
+         * Facade Pattern
+         *
+         * The facade pattern is used to provide a simple interface
+         * to a complex system
+         *
+         * An Example:
+         * -> Let's say we are going to build a mobile app and as part of this app
+         * we are going to add push notifications to its users
+         */
+        // Create notification server
+        var server = new NotificationServer();
+        // Connect to server
+        var connection = server.connect("ip");
+        // Tell the server who we are
+        var authToken = server.authenticate("appID","Key");
+        // create message object
+        var message = new Message("Hello World");
+        // Send message
+        server.send(authToken,message,"target");
+        // Disconnect
+        connection.disconnect();
+        /*
+         * Problem with this setup
+         *
+         * Every time we want to send a push notification we have to follow
+         * all the steps above which. These are a lot of steps to follow and
+         * to eliminate the steps, we can use the facade pattern
+         */
 
 
 
