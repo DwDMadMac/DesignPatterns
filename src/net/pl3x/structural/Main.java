@@ -14,6 +14,8 @@ import net.pl3x.structural.patterns.composite.exercise.solution.Team;
 import net.pl3x.structural.patterns.composite.exercise.solution.Truck;
 import net.pl3x.structural.patterns.composite.problem.Group;
 import net.pl3x.structural.patterns.composite.problem.Shape;
+import net.pl3x.structural.patterns.decorator.problem.CloudStream;
+import net.pl3x.structural.patterns.decorator.problem.EncryptedCloudStream;
 
 /*
  * The Structural Design Patterns
@@ -173,6 +175,30 @@ public class Main {
         var adapterExerciseSolution = new EmailClient();
         adapterExerciseSolution.addProvider(new GmailAdapter(new GmailClient()));
         adapterExerciseSolution.downloadEmails();
+
+
+        /*
+         * Decorator Pattern
+         *
+         * Let's implement a class for storing data into the cloud
+         */
+        // This will store the data in plain text
+        System.out.println();
+        var cloudStream = new CloudStream();
+        cloudStream.write("Here's some data");
+        // This will encrypted the data before it is stored in the cloud
+        var cloudStreamEncrypted = new EncryptedCloudStream();
+        cloudStreamEncrypted.write("Here's some data");
+        /*
+         * Now let's say that your boss comes to you and says I want
+         * to compress and encrypted the data going to the cloud
+         * with the current implementation, you will need to add a new
+         * class to add each feature would could be repetitive
+         * and tiresome. The Decorator pattern solves this problem
+         *
+         * With a decorator pattern you can add additional behaviours to an
+         * objects
+         */
 
 
 
