@@ -279,10 +279,15 @@ public class Main {
          * steps but rather one class to handle this.
          */
         System.out.println();
+        System.out.println("Facade Exercise Problem");
         net.pl3x.structural.patterns.facade.exercise.problem.Demo.show();
         /*
          * Facade Pattern Exercise - Solution
          */
+        System.out.println();
+        System.out.println("Facade Exercise Solution");
+        net.pl3x.structural.patterns.facade.exercise.solution.Demo.show();
+
 
 
 
