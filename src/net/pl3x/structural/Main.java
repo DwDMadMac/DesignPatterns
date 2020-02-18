@@ -21,6 +21,7 @@ import net.pl3x.structural.patterns.decorator.solution.Stream;
 import net.pl3x.structural.patterns.facade.problem.Message;
 import net.pl3x.structural.patterns.facade.problem.NotificationServer;
 import net.pl3x.structural.patterns.facade.solution.NotificationService;
+import net.pl3x.structural.patterns.flyweight.problem.PointService;
 
 /*
  * The Structural Design Patterns
@@ -288,7 +289,40 @@ public class Main {
         System.out.println("Facade Exercise Solution");
         net.pl3x.structural.patterns.facade.exercise.solution.Demo.show();
 
-
+        /*
+         * Flyweight Pattern Problem
+         *
+         * We use this pattern when we have a large number of objects and these objects
+         * take a significant amount of memory
+         *
+         * For example
+         * -> Let's say we are going to build a mobile app like google maps. As part of
+         * rendering a map, we need to show various points of interest. Such as cafes,
+         * restaurants, hospitals, schools, etc.
+         */
+        // Create point server
+        System.out.println();
+        System.out.println("Flyweight Pattern Problem");
+        var pointService = new PointService();
+        // Create for loop
+        for (var point : pointService.getPoints()){
+            point.draw();
+        }
+        /*
+         * Now let's say we deploy this application and we
+         * find out that on some mobile devices it does not perform well
+         * and crashes. We investigate and find out it is running out
+         * of memory. We find out that the Point{} class is using
+         * a fair amount of memory when the application is running. Since
+         * a map couple of hundreds to thousands Points of Interest this
+         * implementation is not ideal and that is why on certain mobile
+         * devices this application crashes.
+         *
+         * We can use the Flyweight pattern to reduce the amount of memory
+         * that our application is using
+         *
+         * Flyweight Pattern Solution
+         */
 
 
 
