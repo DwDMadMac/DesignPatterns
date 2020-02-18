@@ -231,7 +231,7 @@ public class Main {
         net.pl3x.structural.patterns.decorator.exercise.solution.Demo.show();
 
         /*
-         * Facade Pattern
+         * Facade Pattern problem
          *
          * The facade pattern is used to provide a simple interface
          * to a complex system
@@ -254,6 +254,8 @@ public class Main {
         // Disconnect
         connection.disconnect();
         /*
+         * Facade Pattern Solution
+         *
          * Problem with this setup
          *
          * Every time we want to send a push notification we have to follow
@@ -265,6 +267,22 @@ public class Main {
          */
         var service = new NotificationService();
         service.send("Message, Hello World", "Target");
+
+        /*
+         * Facade Pattern Exercise - Problem
+         *
+         * What are the problems with the current implementation?
+         * -> If we wanted to add other operations with the implementation,
+         * we would have to specify the details specifically which can be
+         * very tedious and sloppy. Using the facade pattern allows you to
+         * implement other operations without needing added any additional
+         * steps but rather one class to handle this.
+         */
+        System.out.println();
+        net.pl3x.structural.patterns.facade.exercise.problem.Demo.show();
+        /*
+         * Facade Pattern Exercise - Solution
+         */
 
 
 
