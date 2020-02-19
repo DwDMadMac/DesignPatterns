@@ -22,6 +22,7 @@ import net.pl3x.structural.patterns.facade.problem.Message;
 import net.pl3x.structural.patterns.facade.problem.NotificationServer;
 import net.pl3x.structural.patterns.facade.solution.NotificationService;
 import net.pl3x.structural.patterns.flyweight.problem.PointService;
+import net.pl3x.structural.patterns.flyweight.solution.PointIconFactory;
 
 /*
  * The Structural Design Patterns
@@ -303,9 +304,9 @@ public class Main {
         // Create point server
         System.out.println();
         System.out.println("Flyweight Pattern Problem");
-        var pointService = new PointService();
+        var pointServiceProblem = new PointService();
         // Create for loop
-        for (var point : pointService.getPoints()){
+        for (var point : pointServiceProblem.getPoints()){
             point.draw();
         }
         /*
@@ -323,6 +324,13 @@ public class Main {
          *
          * Flyweight Pattern Solution
          */
+        System.out.println();
+        System.out.println();
+        System.out.println("Flyweight Pattern Solution");
+        var pointServiceSolution = new net.pl3x.structural.patterns.flyweight.solution.PointService(new PointIconFactory());
+        for (var point : pointServiceSolution.getPoints()){
+            point.draw();
+        }
 
 
 
