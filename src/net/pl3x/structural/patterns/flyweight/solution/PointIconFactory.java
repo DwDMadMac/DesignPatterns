@@ -14,8 +14,9 @@ public class PointIconFactory {
 
     /**
      * This method will see if this icon
-     * @param pointType
-     * @return
+     *
+     * @param pointType Get point type
+     * @return Return point type icon
      */
     public PointIcon getPointIcon(PointType pointType) {
         /*

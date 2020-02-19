@@ -345,6 +345,18 @@ public class Main {
         System.out.println("Flyweight Exercise - Problem");
         net.pl3x.structural.patterns.flyweight.exercise.problem.Demo.show();
 
+        /*
+         * Flyweight Pattern Exercise - Solution
+         *
+         * We are now saving memory using the Flyweight Pattern. Instead of storing each font attribute as
+         * an individual memory we are pull the attribute once and reusing it. which in return saves on
+         * a lot of memory.
+         */
+        System.out.println();
+        System.out.println();
+        System.out.println("Flyweight Exercise - Solution");
+        net.pl3x.structural.patterns.flyweight.exercise.solution.Demo.show();
+
 
 
 

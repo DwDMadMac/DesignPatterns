@@ -44,7 +44,6 @@ public class SpreadSheet {
     public void setFontFamily(int row, int col, String fontFamily){
         ensureCellExists(row, col);
 
-        var cell = cells[row][col];
         cells[row][col].setFontFamily(fontFamily);
     }
 
