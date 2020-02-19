@@ -331,6 +331,19 @@ public class Main {
         for (var point : pointServiceSolution.getPoints()){
             point.draw();
         }
+        /*
+         * Flyweight Pattern Exercise - Problem
+         *
+         * The problem with the current implementation is that each cell is storing its font
+         * family, font size and bold characteristics. What if many cells share the same formatting
+         * attributes? Storing these attributes for every cell would be a waste of memory. While
+         * this is not a big deal in a small spreadsheet, it may cause our application to crash if
+         * we have a spreadsheet with 100,000+ rows of data.
+         */
+        System.out.println();
+        System.out.println();
+        System.out.println("Flyweight Exercise - Problem");
+        net.pl3x.structural.patterns.flyweight.exercise.problem.Demo.show();
 
 
 
