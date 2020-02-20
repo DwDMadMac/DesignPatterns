@@ -382,6 +382,10 @@ public class Main {
         var remoteControlAdvancedSamsung = new AdvancedRemoteControl(new SamsungTV());
         remoteControlAdvancedSamsung.tunOn();
 
+        /*
+         * Proxy Pattern
+         */
+
 
 
 
