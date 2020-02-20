@@ -357,6 +357,12 @@ public class Main {
         System.out.println("Flyweight Exercise - Solution");
         net.pl3x.structural.patterns.flyweight.exercise.solution.Demo.show();
 
+        /*
+         * Bridge Pattern Problem
+         *
+         * Let's say you want to build a Universal Control App
+         */
+
 
 
 
