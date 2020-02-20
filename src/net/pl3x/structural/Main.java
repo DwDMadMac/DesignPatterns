@@ -465,6 +465,17 @@ public class Main {
         System.out.println("Proxy Pattern - Exercise Problem");
         net.pl3x.structural.patterns.proxy.exercise.problem.Demo.show();
 
+        /*
+         * Proxy Pattern - Exercise Solution
+         *
+         * By adding a proxy class which implements the markAsChanged() method, we now see
+         * that the database is updated with the new product names.
+         */
+        System.out.println();
+        System.out.println("Proxy Pattern - Exercise Solution");
+        net.pl3x.structural.patterns.proxy.exercise.solution.Demo.show();
+
+
 
 
 
