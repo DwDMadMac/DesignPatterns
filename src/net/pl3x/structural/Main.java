@@ -439,6 +439,31 @@ public class Main {
         }
         librarySolutionTwo.openEbook("a");
 
+        /*
+         * Proxy Pattern - Exercise Problem
+         *
+         * we're going to build an O/RM (Object Relational Mapper). ORMs are tools responsible
+         * for mapping data between a relational database and an object-oriented model. There
+         * are many popular O/RMs out there such as Hibernate and Entity Framework.
+         *
+         * With our "super simplified" implementation of our imaginary ORM, we use the DbContext{}
+         * class to read or write data to our database. The Demo{} class shows the typical
+         * workflow for using a DbContext.
+         *
+         * when we run the code inside the Demo{} class, we only see a SELECT statement printed on
+         * the terminal. This simulates reading a product record from a database. We are missing two
+         * UPDATE statements that should be generated when we save the changes. The reason this is
+         * happening is that our DbContext cannot keep track of the changed objects. So, when we call
+         * saveChanges() method, nothing happens.
+         *
+         * We can fix this y using the Proxy Pattern. A proxy object looks like our target object
+         * (A Product object), but it adds some extra behavior to it. For example, when we call the
+         * setName() method, the proxy notifies the DbContext that it is changed. DbContext provides
+         * a method for this called markAsChanged().
+         */
+        System.out.println();
+        System.out.println("Proxy Pattern - Exercise Problem");
+        net.pl3x.structural.patterns.proxy.exercise.problem.Demo.show();
 
 
 
