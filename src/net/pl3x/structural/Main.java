@@ -8,6 +8,10 @@ import net.pl3x.structural.patterns.adapter.problem.ImageView;
 import net.pl3x.structural.patterns.adapter.problem.VividFilter;
 import net.pl3x.structural.patterns.adapter.solution.CaramelFilter;
 import net.pl3x.structural.patterns.adapter.solution.avaFilters.Caramel;
+import net.pl3x.structural.patterns.bridge.solution.AdvancedRemoteControl;
+import net.pl3x.structural.patterns.bridge.solution.RemoteControl;
+import net.pl3x.structural.patterns.bridge.solution.SamsungTV;
+import net.pl3x.structural.patterns.bridge.solution.SonyTV;
 import net.pl3x.structural.patterns.composite.exercise.problem.Demo;
 import net.pl3x.structural.patterns.composite.exercise.solution.HumanResource;
 import net.pl3x.structural.patterns.composite.exercise.solution.Team;
@@ -358,11 +362,25 @@ public class Main {
         net.pl3x.structural.patterns.flyweight.exercise.solution.Demo.show();
 
         /*
-         * Bridge Pattern Problem
-         *
-         * Let's say you want to build a Universal Control App
+         * Bridge Pattern
          */
-
+        System.out.println();
+        System.out.println("Bridge Pattern");
+        var remoteControl = new RemoteControl(new SonyTV());
+        remoteControl.tunOn();
+        /*
+         * Let's say we want to add the advanced features all we need to do
+         * is add the AdvancedRemoteControl{} class to do this
+         */
+        var remoteControlAdvanced = new AdvancedRemoteControl(new SonyTV());
+        remoteControlAdvanced.tunOn();
+        /*
+         * Let's say tomorrow we want to support a new TV brand, unlike the previous
+         * structure, we do not need to add several new class to our hierarchy. We
+         * can simply just add the TV class the implements the Device{} interface.
+         */
+        var remoteControlAdvancedSamsung = new AdvancedRemoteControl(new SamsungTV());
+        remoteControlAdvancedSamsung.tunOn();
 
 
 
