@@ -27,6 +27,8 @@ import net.pl3x.structural.patterns.facade.problem.NotificationServer;
 import net.pl3x.structural.patterns.facade.solution.NotificationService;
 import net.pl3x.structural.patterns.flyweight.problem.PointService;
 import net.pl3x.structural.patterns.flyweight.solution.PointIconFactory;
+import net.pl3x.structural.patterns.proxy.problem.Ebook;
+import net.pl3x.structural.patterns.proxy.problem.Library;
 
 /*
  * The Structural Design Patterns
@@ -383,8 +385,24 @@ public class Main {
         remoteControlAdvancedSamsung.tunOn();
 
         /*
-         * Proxy Pattern
+         * Proxy Pattern - Problem
+         *
+         * There is a problem with this implementation. We currently
+         * only have three (3) Ebooks for demo purposes but let's say
+         * we have 1k+ Ebooks, we will need to load each Ebook and
+         * store them in memory before showing the Ebook we want
+         * to view. This could be a potential large problem. We only
+         * want to load the Ebook we want to read, not every Ebook
+         * inside the library. This is where we can use the Proxy Pattern.
          */
+        System.out.println();
+        System.out.println("Proxy Pattern - Problem");
+        var library = new Library();
+        String[] fileNames = {"a", "b", "c"};
+        for (var fileName : fileNames){
+            library.add(new Ebook(fileName));
+        }
+        library.openEbook("a");
 
 
 
