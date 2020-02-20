@@ -29,6 +29,8 @@ import net.pl3x.structural.patterns.flyweight.problem.PointService;
 import net.pl3x.structural.patterns.flyweight.solution.PointIconFactory;
 import net.pl3x.structural.patterns.proxy.problem.Ebook;
 import net.pl3x.structural.patterns.proxy.problem.Library;
+import net.pl3x.structural.patterns.proxy.solution.EbookProxy;
+import net.pl3x.structural.patterns.proxy.solution.LoggingEbookProxy;
 
 /*
  * The Structural Design Patterns
@@ -397,12 +399,45 @@ public class Main {
          */
         System.out.println();
         System.out.println("Proxy Pattern - Problem");
-        var library = new Library();
-        String[] fileNames = {"a", "b", "c"};
-        for (var fileName : fileNames){
-            library.add(new Ebook(fileName));
+        var libraryProblem = new Library();
+        String[] fileNamesProblem = {"a", "b", "c"};
+        for (var fileName : fileNamesProblem){
+            libraryProblem.add(new Ebook(fileName));
         }
-        library.openEbook("a");
+        libraryProblem.openEbook("a");
+        /*
+         * Proxy Pattern - Solution
+         *
+         * this implementation is following the open close principle
+         * and is only loading the Ebook we want to read.
+         *
+         * Now if we wanted to add a new operation like logging and/or
+         * authentication we can do so.
+         */
+        System.out.println();
+        System.out.println("Proxy Pattern - Solution");
+        var librarySolution = new net.pl3x.structural.patterns.proxy.solution.Library();
+        String[] fileNamesSolution = {"a", "b", "c"};
+        for (var fileName : fileNamesSolution){
+            librarySolution.add(new EbookProxy(fileName));
+        }
+        librarySolution.openEbook("a");
+        librarySolution.openEbook("c");
+        /*
+         * Now let's show you the new operation at hand like logging
+         * Now all we did was add a new proxy file with the new operation
+         * without having to change any of the other classes, or the rest
+         * of the code below except for when adding in the wanted
+         * Ebook. This is called OCP (Open, Closed, Principle)
+         */
+        System.out.println();
+        System.out.println("Proxy Pattern - Solution Two");
+        var librarySolutionTwo = new net.pl3x.structural.patterns.proxy.solution.Library();
+        String[] fileNamesSolutionTwo = {"a", "b", "c"};
+        for (var fileName : fileNamesSolutionTwo){
+            librarySolutionTwo.add(new LoggingEbookProxy(fileName));
+        }
+        librarySolutionTwo.openEbook("a");
 
 
 
